@@ -22,7 +22,7 @@ data:
  homer_motifs_file: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/input_data/homer_motifs_file.txt'
  gtf: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/genome_folder/data/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1/ensembl_gtf/default/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1.gtf.gz'
  KP_clusters: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/results_KPlung/peaks_clustering_V4/cluster_peaks_annotation.txt"
- counts_KP_peaks: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/NfatKO/tmp/consensus_peaks/raw_counts.txt"
+ counts_KP_peaks: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/NfatKO/consensus_peaks_KP/raw_counts.txt"
  rna_data_path: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/RNA_seq_NfatKO/"
  proteomics_diff_res: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/data/processed/proteomics/GSEA/Gene_list_for_GSEA.xlsx"
  neutrophil_atlases: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/data/raw/Neutrophil_atlas/"
