@@ -1,0 +1,105 @@
+description: |
+ Config file for downstream analyses of the KPlung data
+author: "Aurélie Gabriel"
+
+analysis_folder: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/results_KPlung/
+snakemake_path: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/
+preprocessing_path: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/KP_lung/'
+input_data_path: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/input_data/'
+data:
+ fasta_file: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/genome_folder/data/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1/fasta/default/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1.fa'
+ counts: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/KP_lung/consensus_peaks/raw_counts.txt'
+ metadata: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/KP_lung/consensus_peaks/metadata.txt'
+ pfm_file: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/input_data/H12CORE_mouse_pfm.rds'
+ tobias_fasta: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/genome_folder/data/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1/fasta/default/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1.fa'
+ peak_file: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/KP_lung/consensus_peaks/peaks.bed'
+ indiv_samples_peaks : '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/KP_lung/consensus_peaks/all_peaks.rds'
+ motif_annotations: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/input_data/HOCOMOCO_v12_annotation_mouse.txt'
+ tobias_motifs_file: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/input_data/tobias_motifs_file.txt'
+ homer_motifs_file: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/input_data/homer_motifs_file.txt'
+ gtf: '/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/genome_folder/data/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1/ensembl_gtf/default/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1.gtf.gz'
+
+Pancreas_data:
+  metadata: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/data/Pancreas_data/SraRunTable.csv
+  counts: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/Pancreas/consensus_peaks_KP/raw_counts.txt
+PCA_samplesCorrelation:
+  cpus-per-task: 1
+  mem_mb: 8000
+  time: '1:00:00'
+
+
+run_chromVAR:
+  cpus-per-task: 5
+  mem_mb: 64000
+  time: '1:00:00'
+
+DAR_HOMER:
+  cpus-per-task: 1
+  mem_mb: 8000
+  time: '1:00:00'
+
+merge_bams:
+  cpus-per-task: 10
+  mem_mb: 10000
+  time: '2:00:00'
+
+footprinting:
+  cpus-per-task: 20
+  mem_mb: 10000
+  time: '7:00:00'
+
+pathway_enrichment:
+  cpus-per-task: 10
+  mem_mb: 20000
+  time: '2:00:00'
+
+motif_enrichment_HOMER:
+  cpus-per-task: 10
+  mem_mb: 64000
+  time: '2:00:00'
+
+atlases_signatures:
+  cpus-per-task: 1
+  mem_mb: 64000
+  time: '1:00:00'
+
+
+get_fragments:
+  cpus-per-task: 10
+  mem_mb: 50000
+  time: '2:00:00'
+
+get_fragments2:
+  cpus-per-task: 10
+  mem_mb: 50000
+  time: '2:00:00'
+
+get_gene_activity:
+  cpus-per-task: 10
+  mem_mb: 100000
+  time: '3:00:00'
+
+get_gene_activity2:
+  cpus-per-task: 10
+  mem_mb: 100000
+  time: '3:00:00'
+
+diff_footprinting:
+  cpus-per-task: 20
+  mem_mb: 10000
+  time: '2:00:00'
+
+get_genesets:
+  cpus-per-task: 1
+  mem_mb: 64000
+  time: '1:00:00'
+
+gsva_run:
+  cpus-per-task: 1
+  mem_mb: 64000
+  time: '1:00:00'
+
+addChromatinModule:
+  cpus-per-task: 5
+  mem_mb: 64000
+  time: '1:00:00'
