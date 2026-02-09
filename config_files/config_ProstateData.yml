@@ -1,0 +1,80 @@
+description: |
+ Config file for the analyses of the prostate data
+author: "Aurélie Gabriel"
+
+analysis_folder: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/results_Prostate/
+raw_data_path: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/lherault/SuperCellMultiomicsAnalyses/input/prostateCancer10xMultiome/"
+snakemake_path: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/
+consensus_peaks: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/lherault/SuperCellMultiomicsAnalyses/input/prostateCancer10xMultiome/peakset_minOverlap_0.5_remove.csv"
+prostateHanSamples:
+  - "WT_1"
+  - "WT_2"
+  - "2W_1"
+  - "2W_2"
+  - "1M_1"
+  - "1M_2"
+  - "2_5M_1"
+  - "2_5M_2"
+  - "2_5M_3"
+  - "2_5M_4"
+  - "3_5M_1"
+  - "3_5M_2"
+  - "4_5M_1"
+  - "4_5M_2"
+  - "6M"
+cleanProstateHanSamples:
+  - "WT_1"
+  - "WT_2"
+  - "2W_1"
+  - "2W_2"
+  - "1M_1"
+  - "1M_2"
+  - "2_5M_1"
+  - "2_5M_2"
+  - "2_5M_3"
+  - "2_5M_4"
+  - "3_5M_1"
+  - "3_5M_2"
+  - "4_5M_2"
+  - "6M"
+pathCellRangerProstateData: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/lherault/SuperCellMultiomicsAnalyses/input/prostateCancer10xMultiome/sibcb2/gaodonglab2/lifei/NEPC/sc_REG/sc-RNA-ATAC/cell_ranger_outs/"
+
+Pancreas_data:
+  metadata: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/data/Pancreas_data/SraRunTable.csv
+  counts: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/Pancreas/consensus_peaks/raw_counts.txt
+Integrating_metacells_RNA_ATAC_prostateCancer:
+  cpus-per-task: 12
+  mem_mb: 256000
+  time: '5:00:00'
+MC_build:
+  cpus-per-task: 10
+  mem_mb: 100000
+  time: '2:00:00'
+Integrating_metacells_RNA_ATAC_prostateCancer2:
+  cpus-per-task: 12
+  mem_mb: 256000
+  time: '5:00:00'
+Integrating_metacells_RNA_ATAC_prostateCancer3:
+  cpus-per-task: 12
+  mem_mb: 256000
+  time: '5:00:00'
+Integrating_metacells_RNA_ATAC_prostateCancer4:
+  cpus-per-task: 12
+  mem_mb: 256000
+  time: '5:00:00'
+Integrating_metacells_RNA_ATAC_prostateCancer5:
+  cpus-per-task: 12
+  mem_mb: 256000
+  time: '5:00:00'
+Integrating_metacells_RNA_ATAC_prostateCancer6:
+  cpus-per-task: 12
+  mem_mb: 256000
+  time: '5:00:00'
+Integrating_metacells_RNA_ATAC_prostateCancer7:
+  cpus-per-task: 12
+  mem_mb: 256000
+  time: '5:00:00'
+Integrating_metacells_RNA_ATAC_prostateCancer8:
+  cpus-per-task: 12
+  mem_mb: 256000
+  time: '5:00:00'
