@@ -1,0 +1,60 @@
+description: |
+ Config file for the ATAC-Seq processing pipeline
+author: "Aurélie Gabriel"
+
+ROOT: /data/FAC/FBM/LLB/dgfeller/default_sensitive/agabrie4/collaboration_Pittet_lab/results/
+snakemake_path: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/
+KP_path: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/KP_lung/"
+
+# human data
+PEPATAC_params:
+  output_folder: "/data/FAC/FBM/LLB/dgfeller/default_sensitive/agabrie4/collaboration_Pittet_lab/results/"
+  genome_version: "hg38"
+  adapters: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/all_adapters_PE.fa"
+  genome_folder: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/genome_folder/"
+  blacklist_file: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/hg38-blacklist.v2.bed"
+  chrom_sizes: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/genome_folder/data/2230c535660fb4774114bfa966a62f823fdb6d21acf138d4/fasta/default/2230c535660fb4774114bfa966a62f823fdb6d21acf138d4.chrom.sizes"
+  yaml_file: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/pepatac_original.yaml"
+  config: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/pepatac_config_human.yaml"
+  genome_size: 2747877702
+  cpus-per-task: 30
+  mem_mb: 256000
+  time: '7:00:00'
+
+get_counts_params:
+  cpus-per-task: 5
+  mem_mb: 100000
+  time: '7:00:00'
+
+get_consensus_peaks:
+  cpus-per-task: 1
+  mem_mb: 64000
+  time: '2:00:00'
+
+run_bam_shift:
+  cpus-per-task: 10
+  mem_mb: 64000
+  time: '3:00:00'
+
+run_mac2_bamPE:
+  cpus-per-task: 10
+  mem_mb: 64000
+  time: '3:00:00'
+
+get_fragments:
+  cpus-per-task: 10
+  mem_mb: 50000
+  time: '2:00:00'
+
+get_fragments2:
+  cpus-per-task: 10
+  mem_mb: 50000
+  time: '2:00:00'
+
+DATASET: "Human_bulk_atac"
+Human_bulk_atac:
+  is_geo: false
+  Sample_IDs_list: "data/Human_bulk_atac/Sample_List.txt"
+  fasq_suffix1: "_1.fastq.gz"
+  fasq_suffix2: "_2.fastq.gz"
+  fastq_files: "/data/FAC/FBM/LLB/dgfeller/default_sensitive/agabrie4/collaboration_Pittet_lab/concatenated_final/"

@@ -1,0 +1,64 @@
+description: |
+ Config file for the ATAC-Seq processing pipeline
+author: "Aurélie Gabriel"
+
+ROOT: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/
+snakemake_path: /work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/
+KP_path: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/KP_lung/"
+
+# KP data
+PEPATAC_params:
+  output_folder: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/KP_lung/"
+  genome_version: "mm10"
+  adapters: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/all_adapters_PE.fa"
+  genome_folder: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/genome_folder/"
+  blacklist_file: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/mm10-blacklist.v2.bed"
+  chrom_sizes: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/genome_folder/data/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1/fasta/default/0f10d83b1050c08dd53189986f60970b92a315aa7a16a6f1.chrom.sizes"
+  yaml_file: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/pepatac_original.yaml"
+  config: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/results/PEPATAC_processing/pepatac_config_mouse.yaml"
+  genome_size: 2308125299
+  cpus-per-task: 15
+  mem_mb: 150000
+  time: '7:00:00'
+
+get_counts_params:
+  cpus-per-task: 5
+  mem_mb: 100000
+  time: '7:00:00'
+
+get_consensus_peaks:
+  cpus-per-task: 1
+  mem_mb: 64000
+  time: '2:00:00'
+
+run_bam_shift:
+  cpus-per-task: 10
+  mem_mb: 64000
+  time: '3:00:00'
+
+run_mac2_bamPE:
+  cpus-per-task: 10
+  mem_mb: 64000
+  time: '3:00:00'
+
+get_fragments:
+  cpus-per-task: 10
+  mem_mb: 50000
+  time: '2:00:00'
+
+get_fragments2:
+  cpus-per-task: 10
+  mem_mb: 50000
+  time: '2:00:00'
+
+DATASET: "KP_lung"
+KP_lung:
+  is_geo: false
+  Sample_IDs_list: "data/KP_lung/Sample_List.txt"
+  fasq_suffix1: "_R1.fastq.gz"
+  fasq_suffix2: "_R2.fastq.gz"
+  fastq_files: "/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/data/raw/final_experiment/fastq_files/merged_fastq/"
+
+
+#workflow_path=/work/FAC/FBM/LLB/dgfeller/scrnaseq/agabrie4/collaborations/Mate_Pittet_lab/snakemake_pipeline/workflow/
+#snakemake --snakefile ${workflow_path}pepatac_processing.smk --profile ${workflow_path}config_files/slurm/ --configfile ${workflow_path}config_files/config_pepatac_KPData.yml --dry-run
